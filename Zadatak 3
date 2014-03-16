@@ -31,14 +31,12 @@ fibonacci(&a,&b,&c);
 
 if (c>400000000){
 break;}
-	   
 
 if (c%2==0){
 dat1 << c <<endl; 
 
 najveci=c;
-}
-};
+}};
 
 //Citanje
 ifstream dat2("Parni.txt");	    
