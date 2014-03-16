@@ -1,0 +1,59 @@
+#include<iostream>
+#include<string>
+#include<fstream>
+#include<vector>
+
+using namespace std;
+
+
+void fibonacci(int *a, int *b, int *c){
+	*c=*a+*b;
+	*a=*b;
+	*b=*c;
+
+};
+
+int main(){
+	int a = 1;
+	int b = 1;
+	int c = 0;
+	bool dalje = true;
+	int zbroj = 0;
+    int broj;
+    int najveci = 0;
+
+//Unos u datoteku	
+ofstream dat1("Parni.txt");
+if (!dat1){cout<<"Greska!"<<endl;}   
+
+while(dalje==true){
+fibonacci(&a,&b,&c);
+
+if (c>400000000){
+break;}
+	   
+
+if (c%2==0){
+dat1 << c <<endl; 
+
+najveci=c;
+}
+};
+
+//Citanje
+ifstream dat2("Parni.txt");	    
+if (!dat2){cout<<"Greska!"<<endl;
+return 2;} 
+
+while (dat2 >> broj)
+{
+zbroj+=broj;
+}
+
+cout<<"***************************************************************"<<endl<<endl;
+cout<<"Zbroj Fibonaccievih brojeva je : " << zbroj<<endl<<endl;
+cout<<"***************************************************************"<<endl<<endl;
+cout<<"Zadnji Generirani broj je : " <<najveci<<endl<<endl;
+cout<<"***************************************************************"<<endl;
+return 0;
+}
